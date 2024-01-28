@@ -68,6 +68,7 @@ export const createUser = async (req,res,next) => {
 }
 
 export const getAllUsers = async (req,res,next) => {
+    console.log('hello world this is just ');
     const page = parseInt(req?.query?.page) || 1
     const limit = parseInt(req?.query?.limit) || 8
     const job = req?.query?.job || false;
@@ -91,7 +92,7 @@ export const getAllUsers = async (req,res,next) => {
 
         const count = await userModel.countDocuments(query)
         const totalPages = Math.floor((count + limit - 1) / limit);
-
+        console.log(totalPages);
         return res.status(200).json({message:"user created Successfully", success: true, totalPages, data:getAllUser})
     } catch (error) {
         next(new CustomError(error.message,error.statusCode))

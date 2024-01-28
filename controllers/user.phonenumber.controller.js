@@ -7,6 +7,7 @@ import userPhoneNumberModel from '../models/user.phonenumber.model.js'
 import userModel from '../models/userModel.js'
 
 export const userPhoneNumberOTP = async (req, res, next) => {
+  console.log('hello world');
   const { phoneNumber } = req.body
   try {
     const registeredPhoneNumber = await userModel.findOne({ phoneNumber })
